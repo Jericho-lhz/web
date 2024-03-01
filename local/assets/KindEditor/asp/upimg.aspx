@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="upimg.aspx.cs" Inherits="zxwup.uploadSave"  %>

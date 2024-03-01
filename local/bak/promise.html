@@ -1,0 +1,20 @@
+<html>
+    <head></head>
+    <body></body>
+    <script lang="javascript">
+        function fn(a,b){
+            return new Promise(function(reslove,reject){
+                if(a==b){
+                    reslove('yes')
+                }else{
+                    reject('no')
+                }
+            })
+        }
+        fn(4,4).then(function(res){
+            console.log(res)
+        }).catch(function(err){
+            console.log(err)
+        })
+    </script>
+</html>

@@ -1,0 +1,706 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=0.5,user-scalable=no">
+    <title>Game设置</title>
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            width: 100%;
+            position: fixed;
+            height: 100%;
+        }
+
+        .warp {
+            width: 100%;
+            height: 50px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-self: start;
+            flex: 1;
+        }
+
+        .nav {
+            width: 290px;
+            overflow-y: auto;
+            height: 100%;
+            border-right: solid 1px #d2fefe;
+            box-shadow: 2px 2px 2px #ecfcfc;
+        }
+
+        .nav::-webkit-scrollbar {
+            width: 3px;
+        }
+
+        .nav::-webkit-scrollbar-track {
+            background-color: #eee
+        }
+
+        .nav::-webkit-scrollbar-thumb {
+            background-color: #12535f
+        }
+
+        .nav-item {
+            width: 123px;
+            height: 35px;
+            border-radius: 5px;
+            cursor: pointer;
+            border: solid 1px #00bebd;
+            text-align: center;
+            line-height: 35px;
+            float: left;
+            margin-top: 14px;
+            margin-left: 12px;
+            font-size: 13px;
+        }
+
+        .nav-item:hover,
+        .nav-item-sel {
+            background-color: #d8f1f1;
+        }
+
+        .subNav {
+            width: 100%;
+            margin: 0 auto;
+            height: 45px;
+            border-bottom: solid 1px #00bebd;
+            box-shadow: 0 2px 3px #e5f5ff
+        }
+
+        .subNav-item {
+            margin-left: 40px;
+            height: 45px;
+            line-height: 45px;
+            font-size: 14px;
+            color: #12535f;
+            float: left;
+            cursor: pointer;
+        }
+
+        .subNav-sel {
+            border-bottom: solid 2px #12535f;
+            font-weight: bold;
+            font-size: 15px;
+            height: 43px;
+        }
+
+        .content {
+            height: 100%;
+            overflow-y: auto;
+            flex: 1;
+            position: relative;
+        }
+
+        .content::-webkit-scrollbar {
+            width: 3px;
+        }
+
+        .content::-webkit-scrollbar-track {
+            background-color: #eee
+        }
+
+        .content::-webkit-scrollbar-thumb {
+            background-color: #12535f
+        }
+
+
+        .btn-edit {
+            background-image: url(assets/images/icon/icon-edit.png);
+        }
+
+        .btn-del {
+            background-image: url(assets/images/icon/icon-delete.png);
+        }
+
+
+        #content,
+        #list {
+            width: 96%;
+            margin: 0 auto;
+            overflow: hidden;
+            padding-top: 10px;
+        }
+
+        #list {
+            display: none;
+        }
+
+        .content-block {
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 0 auto;
+            padding-bottom: 5px;
+        }
+
+        .content-item {
+            width: 32%;
+            overflow: hidden;
+            border: solid 1px #ddd;
+            border-radius: 5px;
+            margin-top: 10px;
+            cursor: pointer;
+            box-shadow: 0 3px 3px #eee;
+        }
+
+        .content-k {
+            width: 20%;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            font-size: 13px;
+            color: #12535f;
+            float: left;
+        }
+
+        .content-v {
+            width: 80%;
+            text-align: left;
+            float: left;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            line-height: 30px;
+            font-size: 14px;
+        }
+
+        .content-line {
+            width: 100%;
+            height: 25px;
+            background-color: #fff;
+            border-radius: 3px;
+            margin-top: 10px;
+        }
+
+        .noBorder {
+            border: none;
+            box-shadow: none !important;
+        }
+
+        #team {
+            width: 80%;
+            height: 40px;
+            line-height: 40px;
+            text-align: left;
+            font-size: 19px;
+            font-weight: bold;
+            color: #12535f;
+            background-image: url(assets/images/icon/game/icon-team.png);
+            background-position: left center;
+            background-repeat: no-repeat;
+            background-size: 24px;
+            padding-left: 35px;
+        }
+
+        #camp {
+            width: 80%;
+            height: 40px;
+            line-height: 40px;
+            text-align: left;
+            font-size: 15px;
+            color: #12535f;
+            background-position: left center;
+            background-repeat: no-repeat;
+            background-size: 24px;
+            padding-left: 35px;
+        }
+
+        .camp-west {
+            background-image: url(assets/images/icon/game/icon-camp-west.png);
+            color: #1296db !important;
+        }
+
+        .camp-east {
+            background-image: url(assets/images/icon/game/icon-camp-east.png);
+            color: #c8062e !important;
+        }
+
+        #money {
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            text-align: left;
+            font-size: 15px;
+            color: #f60;
+            background-image: url(assets/images/icon/game/icon-money.png);
+            background-position: left center;
+            background-repeat: no-repeat;
+            background-size: 20px;
+            padding-left: 35px;
+        }
+
+        .list-item {
+            width: 100%;
+            overflow: hidden;
+            border-bottom: dotted 1px #ccc;
+        }
+
+        .list-item-k {
+            width: 100px;
+            text-align: center;
+            font-size: 13px;
+            color: #12535f;
+            height: 50px;
+            line-height: 50px;
+            float: left;
+            cursor: pointer;
+        }
+
+        .list-item-v {
+            float: left;
+            overflow: hidden;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            text-align: left;
+            font-size: 14px;
+            line-height: 30px;
+            cursor: pointer;
+        }
+
+        .nothing {
+            width: 200px;
+            height: 160px;
+            margin: 50px auto;
+            background-image: url(assets/images/icon/icon-nothing.png);
+            background-size: 100% 100%;
+        }
+
+        @media screen and (max-width:1000px) {
+            /* body {
+                width: 750px;
+            } */
+
+            .top-search {
+                width: 50%;
+                margin-left: 20%;
+            }
+
+            .top-search-wd {
+                width: 65%;
+            }
+
+            #btn_old {
+                display: none;
+            }
+
+        }
+
+        .shadowbox {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            z-index: 0;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.6);
+            display: none;
+        }
+
+        .editbox {
+            width: 400px;
+            height: 200px;
+            background-color: #fff;
+            z-index: 10;
+            border-radius: 5px;
+            overflow: hidden;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-left: -200px;
+            margin-top: -100px;
+            display: none;
+        }
+
+        .box-nav {
+            width: 100%;
+            height: 40px;
+            overflow: hidden;
+        }
+
+        .box-title {
+            width: 300px;
+            height: 40px;
+            margin-left: 10px;
+            line-height: 40px;
+            text-align: left;
+            font-size: 15px;
+            color: #12535f;
+            float: left;
+        }
+
+        .box-close {
+            width: 40px;
+            height: 40px;
+            background-image: url(assets/images/icon/icon-close.png);
+            background-size: 18px;
+            background-position: center;
+            background-repeat: no-repeat;
+            cursor: pointer;
+            float: right;
+        }
+
+        .box-close:hover {
+            background-image: url(assets/images/icon/icon-close-h2.png);
+        }
+
+        .box-main {
+            width: 100%;
+            height: 120px;
+            overflow: hidden;
+        }
+
+        .box-main textarea {
+            width: 380px;
+            margin: 8px;
+            height: 98px;
+            border: solid 1px #12535f;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .box-btns {
+            width: 100%;
+            height: 40px;
+            border-top: solid 1px #12535f;
+            overflow: hidden;
+        }
+
+        .box-cancle {
+            width: 50%;
+            height: 40px;
+            float: left;
+            font-size: 15px;
+            color: #999;
+            background-color: #eee;
+            cursor: pointer;
+            line-height: 40px;
+            text-align: center;
+        }
+
+        .box-cancle:hover {
+            background-color: #f5f5f5;
+        }
+
+        .box-confirm {
+            width: 50%;
+            height: 40px;
+            float: left;
+            font-size: 15px;
+            color: #fff;
+            background-color: #12535f;
+            cursor: pointer;
+            line-height: 40px;
+            text-align: center;
+        }
+
+        .box-confirm:hover {
+            background-color: #044450;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="top"></div>
+
+    <div class="warp">
+        <div class="nav"></div>
+
+        <div class="content">
+            <div class="subNav"></div>
+            <div id="content">
+                <div class="content-block">
+                    <div class="content-item noBorder">
+                        <div id="team"></div>
+                    </div>
+                    <div class="content-item noBorder">
+                        <div id="camp"></div>
+                    </div>
+                    <div class="content-item noBorder">
+                        <div id="money"></div>
+                    </div>
+                </div>
+
+                <div class="content-block">
+                    <div class="content-item">
+                        <div class="content-k">底保卡</div>
+                        <div class="content-v" id="protect_card"></div>
+                    </div>
+                    <div class="content-item">
+                        <div class="content-k">底薪卡</div>
+                        <div class="content-v" id="basic_card"></div>
+                    </div>
+                    <div class="content-item">
+                        <div class="content-k">C级卡</div>
+                        <div class="content-v" id="c_card"></div>
+                    </div>
+                    <div class="content-item">
+                        <div class="content-k">底巨卡</div>
+                        <div class="content-v" id="star_card"></div>
+                    </div>
+                    <div class="content-item">
+                        <div class="content-k">中产卡</div>
+                        <div class="content-v" id="middle_card"></div>
+                    </div>
+                    <div class="content-item">
+                        <div class="content-k">底替卡</div>
+                        <div class="content-v" id="small_card"></div>
+                    </div>
+                </div>
+
+                <div class="content-line"></div>
+                <div class="content-block">
+                    <div class="content-item">
+                        <div class="content-k">当前阵容</div>
+                        <div class="content-v" id="player"></div>
+                    </div>
+                    <div class="content-item">
+                        <div class="content-k">传说头像</div>
+                        <div class="content-v" id="legend_photo"></div>
+                    </div>
+                    <div class="content-item">
+                        <div class="content-k">X球员</div>
+                        <div class="content-v" id="x_player"></div>
+                    </div>
+                    <div class="content-item">
+                        <div class="content-k">X头像</div>
+                        <div class="content-v" id="x_photo"></div>
+                    </div>
+                </div>
+                <div class="content-line"></div>
+                <div class="content-block">
+                    <div class="content-item">
+                        <div class="content-k">其他</div>
+                        <div class="content-v" id="other"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="list"></div>
+
+            <div class="editbox">
+                <div class="box-nav">
+                    <div class="box-title"></div>
+                    <div class="box-close "></div>
+                </div>
+                <div class="box-main">
+                    <textarea id="wd"></textarea>
+                    <input type="hidden" id="keyTag">
+                </div>
+                <div class="box-btns">
+                    <div class="box-cancle">取消</div>
+                    <div class="box-confirm">确认</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="shadowbox"></div>
+
+</body>
+
+<script language="javascript" src="assets/js/jquery.js"></script>
+<script language="javascript" src="assets/js/ajax.js"></script>
+<script language="javascript">
+    var arrNav = ['球队', '饭卡', '底保卡', '底薪卡', '底巨卡', 'C级卡', '中产卡', '底替卡', '当前阵容', '传说头像', 'X球员', 'X头像', '其他']
+    var arrNavKey = ['team', 'money', 'protect_card', 'basic_card', 'star_card', 'c_card', 'middle_card', 'small_card', 'player', 'legend_photo', 'x_player', 'x_photo', 'other']
+    var navid = 0
+    var playerid = 0
+    var teamList = []
+    var teamNum = 0
+    var subflag = 0
+    var navCount = 0
+    var geturl = 'public/get/gamebak/get.asp'
+    var posturl = 'public/set/gamebak/set.asp'
+
+
+    initNav()
+    initPlayer()
+
+    $('#top').load('top.html')
+
+    function initNav() {    //初始化导航条
+        for (var i = 0; i < arrNav.length; i++) {
+            var _item = '<div class="subNav-item"'
+            if (i == 0) { _item = '<div class="subNav-item subNav-sel"' }
+            _item = _item + 'onclick="setNav(' + i + ',this)" >' + arrNav[i] + '</div>'
+            $('.subNav').append(_item)
+        }
+    }
+
+    function setNav(id, obj) {  //点击后设置导航条
+        navid = id
+        $('.subNav-item').removeClass('subNav-sel')
+        $(obj).addClass('subNav-sel')
+        setNavData(id)
+    }
+
+    function setNavData(id) {   //设置内容部分数据
+        if (id == 0) {
+            $('#content').show()
+            $('#list').hide()
+        } else {
+            $('#content').hide()
+            $('#list').html('')
+            navCount = 0
+            arrCount = [1, 2, 3, 4, 5, 6, 7]
+            for (var i = 0; i < teamList.length; i++) {
+                if (teamList[i].id != 0) {
+                    var item = teamList[i]
+                    if (item[arrNavKey[id]] != '' && item[arrNavKey[id]] != 0) {
+                        var _item = '<div class="list-item"><div class="list-item-k" onclick="showPlayer(' + item.id + ')">' + item.team + '</div><div class="list-item-v" ondblclick="editList(' + item.id + ',\'' + arrNav[id] + '\',\'' + arrNavKey[id] + '\',\'' + item[arrNavKey[id]] + '\')">'
+                        _item = _item + item[arrNavKey[id]] + '</div></div>'
+                        $('#list').append(_item)
+                        if (arrCount.includes(id)) {
+                            fn_count(item[arrNavKey[id]])
+                        }
+                    }
+                }
+            }
+            if (navCount != 0) {
+                $('#list').append('<div class="list-item"><div class="list-item-k">总计</div><div class="list-item-v">' + navCount + '</div></div>')
+            }
+            $('#list').show()
+        }
+    }
+
+    function fn_count(num) {
+        navCount = parseInt(navCount) + parseInt(num)
+    }
+
+    function initPlayer() {
+        Get(geturl).then(function (res) {
+            var list = res.team
+            teamNum = res.teamNum
+            teamList = list
+            for (var i = 0; i < list.length; i++) {
+                if (list[i].id != 0) {
+                    var _item = '<div class="nav-item team-' + list[i].id + ''
+                    if (i == 0) {
+                        _item = _item + ' nav-item-sel'
+                        playerid = list[i].id
+                        setPlayerData(list[i].id)
+                    }
+                    _item = _item + '" onclick="setPlayer(' + list[i].id + ',this)">' + list[i].team + '</div>'
+                    $('.nav').append(_item)
+                }
+            }
+        })
+    }
+
+    function setPlayer(id, obj) {
+        $('.nav-item').removeClass('nav-item-sel')
+        $(obj).addClass('nav-item-sel')
+        $('.subNav-item').removeClass('subNav-sel')
+        $('.subNav-item').first().addClass('subNav-sel')
+        $('#content').show()
+        $('#list').hide()
+        playerid = id
+        setPlayerData(id)
+    }
+
+    function setPlayerData(id) {
+        for (var i = 0; i < teamList.length; i++) {
+            var team = teamList[i]
+            if (team.id == id) {
+                $('#team').html(team.team)
+                $('#camp').html(team.camp)
+                $('#money').html(team.money)
+                $('#protect_card').html(team.protect_card)
+                $('#basic_card').html(team.basic_card)
+                $('#player').html(team.player)
+                $('#legend_photo').html(team.legend_photo)
+                $('#x_player').html(team.x_player)
+                $('#x_photo').html(team.x_photo)
+                $('#star_card').html(team.star_card)
+                $('#middle_card').html(team.middle_card)
+                $('#small_card').html(team.small_card)
+                $('#c_card').html(team.c_card)
+                $('#other').html(team.other)
+                if (team.camp == '西') {
+                    $('#camp').addClass('camp-west').removeClass('camp-east')
+                } else {
+                    $('#camp').addClass('camp-east').removeClass('camp-west')
+                }
+            }
+        }
+    }
+
+    function showPlayer(id) {
+        $('.nav-item').removeClass('nav-item-sel')
+        $('.nav-item').filter('.team-' + id).addClass('nav-item-sel')
+        $('.subNav-item').removeClass('subNav-sel')
+        $('.subNav-item').first().addClass('subNav-sel')
+        playerid = id
+        setPlayerData(id)
+        $('#content').show()
+        $('#list').hide()
+    }
+
+    $('.box-cancle,.box-close').click(function () {
+        $('.shadowbox,.editbox').hide()
+    })
+
+    $('.content-item').dblclick(function () {
+        var _title = $(this).find('.content-k').text() ? $(this).find('.content-k').text() : $(this).find('div').text()
+        var _key = $(this).find('.content-v').attr('id') ? $(this).find('.content-v').attr('id') : $(this).find('div').attr('id')
+        var _value = $(this).find('.content-v').text() ? $(this).find('.content-v').text() : $(this).find('div').text()
+        showEditBox(_title, _key, _value)
+    })
+
+    function editList(id, title, key, value) {
+        playerid = id
+        showEditBox(title, key, value)
+    }
+
+    function showEditBox(title, key, value) {
+        $('.box-title').text(title)
+        $('#keyTag').val(key)
+        $('#wd').val(value)
+        $('.shadowbox,.editbox').show()
+    }
+
+    $('.box-confirm').click(function () {
+        if (subflag == 0) {
+            subflag = 1
+            var keyTag = $('#keyTag').val()
+            var wd = $('#wd').val()
+            for (var i = 0; i < teamList.length; i++) {
+                if (teamList[i].id == playerid) {
+                    teamList[i][keyTag] = wd
+                }
+            }
+            var data = {}
+            data.teamNum = teamNum
+            data.team = teamList
+            var postdata = {
+                store: JSON.stringify(data),
+                bak: 1
+            }
+            Post(posturl, postdata).then(function (res) {
+                if (res.errCode == 200) {
+                    alert('修改成功')
+                    $('#' + keyTag).text(wd)
+                    subflag = 0
+                    $('.shadowbox,.editbox').hide()
+                    Get(geturl).then(function(res){
+                        setNavData(navid)
+                    })
+                }
+            })
+        }
+    })
+    
+    function Log(){
+        console.log(navid,playerid,teamList,teamNum,subflag,navCount)
+    }
+</script>
+
+</html>

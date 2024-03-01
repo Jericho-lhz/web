@@ -1,0 +1,331 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>本地文档</title>
+    <style type="text/css">
+        body {
+            font-size: 14px;
+            font-family: micorsoft Yahei;
+            margin: 0px;
+            background-image: url(assets/images/bg3.jpeg);
+            background-attachment: fixed
+        }
+
+        .main {
+            width: 1200px;
+            margin: 0 auto;
+            border-radius: 10px;
+            background-color: #fff;
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .main-nav {
+            width: 100%;
+            height: 51px;
+            margin: 0 auto;
+            overflow: hidden;
+            background-color: #f5f5f5
+        }
+
+        .main-title {
+            width: 300px;
+            height: 20px;
+            margin-top: 15px;
+            text-align: left;
+            float: left;
+            font-size: 19px;
+            color: #006f69;
+            line-height: 20px;
+            border-left: 3px solid #006f69;
+            padding-left: 15px;
+            margin-left: 15px
+        }
+
+        .btn-back {
+            width: 80px;
+            height: 30px;
+            border-radius: 3px;
+            cursor: pointer;
+            color: #0f847b;
+            float: right;
+            text-align: center;
+            line-height: 30px;
+            margin-top: 10px;
+            margin-right: 15px
+        }
+
+        .warp {
+            width: 1000px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .title,
+        .cid {
+            width: 980px;
+            height: 40px;
+            margin-top: 15px;
+            border: solid 1px #0f847b;
+            border-radius: 5px
+        }
+
+        .cid {
+            width: 150px;
+        }
+
+        #title {
+            width: 960px;
+            margin-left: 10px;
+            height: 40px;
+            font-size: 15px;
+            border: none;
+            background: none;
+            outline: none
+        }
+
+        #fid {
+            width: 130px;
+            height: 40px;
+            margin-left: 10px;
+            font-size: 15px;
+            border: none;
+            outline: none;
+            background: none;
+        }
+
+        #title::placeholder {
+            color: #ddd
+        }
+
+        .content {
+            width: 1000px;
+            margin: 20px auto;
+            overflow: hidden;
+            height: 530px;
+            border-radius: 5px
+        }
+
+        #content {
+            width: 980px;
+            height: 510px;
+            margin: 10px;
+            border: none;
+            outline: none;
+            background: none;
+            line-height: 22px;
+            font-size: 15px
+        }
+
+        #content::placeholder {
+            color: #aaa
+        }
+
+        #content::-webkit-scrollbar {
+            width: 3px;
+            height: 2px
+        }
+
+        #content::-webkit-scrollbar-track {
+            background-color: #d7e4e4
+        }
+
+        #content::-webkit-scrollbar-thumb {
+            background-color: #0f847b
+        }
+
+        .btn-sub {
+            width: 120px;
+            height: 40px;
+            border-radius: 3px;
+            cursor: pointer;
+            color: #fff;
+            text-align: center;
+            line-height: 40px;
+            margin: 20px auto;
+            background-color: #0f847b;
+            font-size: 17px
+        }
+
+        .foot {
+            width: 100%;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+        }
+
+        canvas {
+            position: absolute;
+            z-index: 0;
+            top: 0;
+            left: 0;
+        }
+    </style>
+    <link rel="stylesheet" href="assets/kindeditor/themes/default/default.css" />
+    <link rel="stylesheet" href="assets/kindeditor/plugins/code/prettify.css" />
+    <script charset="utf-8" src="assets/kindeditor/kindeditor.js?t=3"></script>
+    <script charset="utf-8" src="assets/kindeditor/lang/zh-CN.js"></script>
+    <script charset="utf-8" src="assets/kindeditor/plugins/code/prettify.js"></script>
+    <script language="javascript">
+        var KE
+        KindEditor.ready(function (K) {
+            KE = K.create('textarea[name="content"]', {
+                cssData: 'body {font-family: "微软雅黑"; font-size: 14px}',
+                cssPath: 'kindeditor/plugins/code/prettify.css',
+                uploadJson: 'kindeditor/asp/upimg.aspx',
+                fileManagerJson: 'kindeditor/asp/upimg.aspx',
+                allowFileManager: true,
+                allowImageRemote: false,
+                resizeType: 0,
+                afterBlur: function () { this.sync(); }
+            });
+            prettyPrint();
+        });
+    </script>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+
+    <div id="top"></div>
+
+    <div class="main">
+        <div class="main-nav">
+            <div class="main-title">
+            </div>
+            <div class="btn-back" onClick="history.go(-1)">返回></div>
+        </div>
+        <div class="warp">  
+            <div class="title">
+                <input type="text" id="title" placeholder="请输入文档标题" value="">
+            </div>
+            <div class="cid">
+                <input type="text" id="title" placeholder="请输入文档标题" value="">
+            </div>
+            <div class="content">
+                <textarea id="content" name="content" placeholder="请输入文档内容"></textarea>
+            </div>
+            <div class="btn-sub">提 交</div>
+        </div>
+    </div>
+
+    <div class="foot">www.chinaxinge.com@Lhz</div>
+
+    <script language="javascript" src="assets/js/jquery.js"></script>
+    <script language="javascript" src="assets/js/ajax.js"></script>
+    <script language="javascript">
+        var urlParams = new URLSearchParams(window.location.search)
+        var id = urlParams.get('id')
+        var fid = urlParams.get('fid')
+        var geturl = 'public/get/local/get.asp'
+        var posturl = 'public/set/local/set.asp'
+        if (id == null) { id = 0 }
+        if (fid == null) { fid = 0 }
+        CodeRain()
+
+        $('#top').load('top.html')
+
+        let init = (id) => {
+            if (id != 0) {
+                var getdata = {
+                    act: 'get_new',
+                    id: id
+                }
+                Get(geturl, getdata).then(function (res) {
+                    if (res.errCode == 200) {
+                        document.title = res.info.title
+                        $('.main-title').text(res.info.title)
+                        $('#title').val(res.info.title)
+                        //$('#content').val(res.info.content)
+                        KE.html(res.info.content)
+                    } else {
+                        document.title = '新建文档'
+                        $('.main-title').text('新建文档')
+                        $('#title').val('')
+                        KE.html('')
+                    }
+                })
+            }
+        }
+
+        let setFid = (id) => {
+            fid = id
+        }
+
+        let initCls = (fid) => {
+            var getdata = { act: 'get_cls' }
+            Get(geturl, getdata).then(function (res) {
+                var _selector = '<select id="fid" onchange="setFid(this.value)">'
+                for (var i = 0; i < res.length; i++) {
+                    if (fid == res[i].id || (fid == 0 && i == 0)) {
+                        setFid(res[i].id)
+                        _selector = _selector + '<option value="' + res[i].id + '" selected>' + res[i].title + '</option>'
+                    } else {
+                        _selector = _selector + '<option value="' + res[i].id + '">' + res[i].title + '</option>'
+                    }
+                }
+                _selector = _selector + '<select>'
+                $('.cid').html(_selector)
+            })
+
+        }
+
+        initCls(fid)
+        init(id)
+
+        $('.btn-sub').click(() => {
+            var title = $('#title').val()
+            var content = $('#content').val()
+            if (title == '') {
+                alert('请输入文档标题')
+                return false
+            }
+            if (content == '') {
+                alert('请输入文档内容')
+                return false
+            }
+            // console.log('public/set/local/set.asp?act=add_news&fid=' + fid + '&id=' + id + '&title=' + title + '&content=' + content)
+            var postdata = {
+                act: 'add_news',
+                fid: fid,
+                id: id,
+                title: title,
+                content: content
+            }
+            Post(posturl,postdata).then(function(res){
+                if (res.errCode == 200) {
+                    location.href = '/'
+                }
+            })
+        })
+
+        //代码雨
+        function CodeRain() {
+            let cavans = document.querySelector('canvas');
+            let ctx = cavans.getContext('2d');
+            cavans.width = screen.availWidth;
+            // cavans.height = screen.availHeight;
+            cavans.height = document.documentElement.scrollHeight;
+            let str = 'LHZJERICJO1986'.split('');
+            let arr = Array(Math.ceil(cavans.width / 10)).fill(0);
+            // console.log(arr)
+            const Rain = () => {
+                ctx.fillStyle = 'rgb(0,0,0,0.05)';
+                ctx.fillRect(0, 0, cavans.width, cavans.height);
+                ctx.fillStyle = '#0f0';
+                arr.forEach((item, index) => {
+                    ctx.fillText(str[Math.floor(Math.random() * str.length)], index * 10, item + 10);
+                    arr[index] = item > cavans.height || item > 15000 * Math.random() ? 0 : item + 10;
+                });
+            };
+            setInterval(Rain, 40);
+        }
+
+
+    </script>
+</body>
+
+</html>

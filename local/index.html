@@ -1,0 +1,363 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=0.5,user-scalable=no">
+    <title>本地文档</title>
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            width: 100%;
+            position: fixed;
+            height: 100%;
+        }
+
+        .warp {
+            width: 100%;
+            height: 50px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-self: start;
+            flex: 1;
+        }
+
+        .nav {
+            width: 70px;
+            overflow: hidden;
+            height: 100%;
+            border-right: solid 1px #eee;
+            box-shadow: 2px 2px 2px #ecfcfc;
+        }
+
+        .nav-item {
+            width: 100%;
+            height: 50px;
+            cursor: pointer;
+            padding-top: 15px;
+        }
+
+        .nav-item:hover,
+        .nav-item-sel {
+            background-color: #d8f1f1;
+        }
+
+        .nav-item-icon {
+            width: 18px;
+            height: 18px;
+            margin: 0 auto;
+
+        }
+
+        .nav-item-icon img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .nav-item-tag {
+            width: 100%;
+            height: 20px;
+            font-size: 13px;
+            text-align: center;
+            line-height: 20px;
+            color: #12535f;
+        }
+
+        .subNav {
+            width: 250px;
+            height: 100%;
+            overflow-y: auto;
+            border-right: solid 1px #eee;
+        }
+
+        .subNav::-webkit-scrollbar {
+            width: 3px;
+        }
+
+        .subNav::-webkit-scrollbar-track {
+            background-color: #eee
+        }
+
+        .subNav::-webkit-scrollbar-thumb {
+            background-color: #12535f
+        }
+
+        .subNav-item {
+            width: 210px;
+            margin: 10px auto;
+            border: solid 1px #eee;
+            text-align: left;
+            font-size: 14px;
+            color: #12535f;
+            height: 30px;
+            border-radius: 5px;
+            overflow: hidden;
+            padding: 5px;
+            line-height: 30px;
+            cursor: pointer;
+        }
+
+        .subNav-item-sel {
+            background-color: #d8f1f1;
+        }
+
+        .content {
+            height: 100%;
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        .content::-webkit-scrollbar {
+            width: 3px;
+        }
+
+        .content::-webkit-scrollbar-track {
+            background-color: #eee
+        }
+
+        .content::-webkit-scrollbar-thumb {
+            background-color: #12535f
+        }
+
+        .content-nav {
+            width: 96%;
+            height: 40px;
+            margin: 0 auto;
+            border-bottom: solid 1px #eee;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .content-nav-title {
+            width: 50%;
+            height: 40px;
+        }
+
+        .content-nav-title-icon {
+            width: 3px;
+            height: 14px;
+            font-size: 0;
+            background-color: #12535f;
+            float: left;
+            margin-top: 13px;
+        }
+
+        .content-nav-title-tag {
+            width: 95%;
+            height: 40px;
+            line-height: 40px;
+            text-align: left;
+            float: right;
+            overflow: hidden;
+            font-size: 14px;
+            color: #12535f;
+        }
+
+        .content-nav-btns {
+            width: 75px;
+            height: 80px;
+            z-index: 1;
+            position: fixed;
+            top: 50%;
+            margin-top: -40px;
+            right: 50px;
+        }
+
+        .content-nav-btn {
+            width: 55px;
+            float: left;
+            color: #12535f;
+            cursor: pointer;
+            display: none;
+            background-size: 12px 12px;
+            text-align: right;
+            padding-right: 10px;
+            font-size: 13px;
+            background-repeat: no-repeat;
+            background-position: 10px center;
+            height: 28px;
+            line-height: 28px;
+            margin: 5px;
+            border-radius: 5px;
+            border: solid 1px #ddd;
+            background-color: #fff;
+        }
+
+        .content-nav-btn:hover {
+            background-color: #ecfcfc;
+        }
+
+        .btn-edit {
+            background-image: url(assets/images/icon/icon-edit.png);
+        }
+
+        .btn-del {
+            background-image: url(assets/images/icon/icon-delete.png);
+        }
+
+        #title {
+            width: 100%;
+            height: 80px;
+            line-height: 80px;
+            text-align: center;
+            font-size: 20px;
+            color: #000;
+            overflow: hidden;
+        }
+
+        #content {
+            width: 96%;
+            margin: 0 auto;
+            overflow: hidden;
+            flex: 1;
+            line-height: 200%;
+            font-size: 14px;
+        }
+
+        .nothing {
+            width: 200px;
+            height: 160px;
+            margin: 50px auto;
+            background-image: url(assets/images/icon/icon-nothing.png);
+            background-size: 100% 100%;
+        }
+
+        @media screen and (max-width:1000px) {
+            /* body {
+                width: 750px;
+            } */
+
+            .top-search {
+                width: 50%;
+                margin-left: 20%;
+            }
+
+            .top-search-wd {
+                width: 65%;
+            }
+
+            #btn_old {
+                display: none;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="top"></div>
+
+    <div class="warp">
+        <div class="nav"></div>
+        <div class="subNav"></div>
+        <div class="content">
+            <div class="content-nav">
+                <div class="content-nav-title">
+                    <div class="content-nav-title-icon"></div>
+                    <div class="content-nav-title-tag">文档标题</div>
+                </div>
+                <div class="content-nav-btns">
+                    <div class="content-nav-btn btn-edit" onclick="edit()">修改</div>
+                    <div class="content-nav-btn btn-del" onclick="del()">删除</div>
+                </div>
+            </div>
+            <div id="title"></div>
+            <div id="content">
+                <div class="nothing"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script language="javascript" src="assets/js/jquery.js"></script>
+<script language="javascript" src="assets/js/ajax.js"></script>
+<script language="javascript">
+    var fid = 2
+    var sid = 0
+    var geturl = 'public/get/local/get.asp'
+    var posturl = 'public/get/local/post.asp'
+    getNav(fid)
+
+    $('#top').load('top.html')
+
+    function getNav(fid) {
+        var getdata = { act: 'get_cls' }
+        Get(geturl, getdata).then(function (res) {
+            if (res.length > 0) {
+                for (var i = 0; i < res.length; i++) {
+                    var _item = '<div class="nav-item"'
+                    if ((i == 0 && fid == 0) || fid == res[i].id) {
+                        var _item = '<div class="nav-item nav-item-sel"'
+                        getSubNav(res[i].id, this)
+                        fid = res[i].id
+                    }
+                    _item = _item + ' onclick="getSubNav(' + res[i].id + ',this)"><div class="nav-item-icon"><img src="assets/images/icon/nav/' + res[i].icon + '"></div><div class="nav-item-tag">' + res[i].title + '</div></div>'
+                    $('.nav').append(_item)
+                }
+            }
+        })
+    }
+
+    function getSubNav(id, obj) {
+        $('.nav .nav-item').removeClass('nav-item-sel')
+        $(obj).addClass('nav-item-sel')
+        fid = id
+        $('.subNav').html('')
+        var getdate = {
+            act: 'get_news',
+            fid: id
+        }
+        Get(geturl, getdate).then(function (res) {
+            if (res.length > 0) {
+                for (var i = 0; i < res.length; i++) {
+                    var _item = '<div class="subNav-item"'
+                    _item = _item + ' onclick="getContent(' + res[i].id + ',this)">' + res[i].title + '</div>'
+                    $('.subNav').append(_item)
+                }
+            }
+        })
+    }
+
+    function getContent(id, obj) {
+        $('.subNav .subNav-item').removeClass('subNav-item-sel')
+        $(obj).addClass('subNav-item-sel')
+        var getdate = {
+            act: 'get_new',
+            id: id
+        }
+        Get(geturl, getdate).then(function (res) {
+            if (res.errCode == 200) {
+                console.log(res)
+                sid = id
+                $('.content-nav-title-tag,#title').text(res.info.title)
+                $('#content').html(res.info.content)
+                $('.content-nav-btn').show()
+            }
+        })
+    }
+    
+    function edit() {
+        if (fid != 0 && sid != 0) {
+            location.href = 'add.html?fid=' + fid + '&id=' + sid
+        }
+    }
+
+    function del() {
+        if (!confirm('你确定要删除吗')) {
+            return false
+        }
+        Post(posturl, postdate).then(function (res) {
+            if (res.errCode == 200) {
+                location.reload()
+            }
+        })
+    }
+
+</script>
+
+</html>

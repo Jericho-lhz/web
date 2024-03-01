@@ -1,0 +1,543 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<style type="text/css">
+		body {
+			margin: 0px;
+			font-size: 13px;
+			font-family: Microsoft Yahei;
+			background-color: #F3F5FB;
+			width: 100%;
+			background-image: url(assets/images/oa-bg9.jpeg);
+			background-attachment: fixed
+		}
+
+		.top {
+			width: 100%;
+			height: 50px;
+			overflow: hidden;
+			position: fixed;
+			top: 0px;
+			left: 0px;
+			background-color: #8a491b;
+			border-bottom: solid 1px #96520d;
+			color: #fff;
+			z-index: 999;
+			box-shadow: 0 3px 3px #5B2528
+		}
+
+		.nav {
+			width: 1400px;
+			margin: 0 auto;
+			overflow: hidden;
+			display: block;
+			text-align: center
+		}
+
+		.nav-item {
+			width: 60px;
+			height: 30px;
+			line-height: 30px;
+			text-align: center;
+			cursor: pointer;
+			font-size: 13px;
+			margin: 10px 5px;
+			border-radius: 3px;
+			font-size: 15px;
+			display: inline-block
+		}
+
+		.nav-on,
+		.nav-item:hover {
+			background-color: #bd7203;
+			color: #fff
+		}
+
+		.page {
+			width: 1400px;
+			margin: 0 auto;
+			padding-top: 50px;
+			overflow: hidden
+		}
+
+		.navSub {
+			width: 220px;
+			height: 830px;
+			border-radius: 5px;
+			float: left;
+			overflow: auto;
+			position: fixed;
+			top: 65px;
+			background: rgba(255, 255, 255, 0.9);
+			backdrop-filter: blur(6px)
+		}
+
+		#navSub::-webkit-scrollbar {
+			width: 3px;
+		}
+
+		#navSub::-webkit-scrollbar-track {
+			background-color: #eee
+		}
+
+		#navSub::-webkit-scrollbar-thumb {
+			background-color: #8A491B
+		}
+
+		.navSub-search {
+			width: 100%;
+			height: 40px;
+			background-color: #f9e1ce;
+		}
+
+		.navSub-wd {
+			width: 110px;
+			margin-left: 20px;
+			border: solid 1px #9e571f;
+			float: left;
+			overflow: hidden;
+			margin-top: 10px;
+			height: 20px;
+			background-color: #fff;
+			border-radius: 3px
+		}
+
+		#wd {
+			width: 94%;
+			margin-left: 3%;
+			border: none;
+			background: none;
+			outline: none
+		}
+
+		.navSub-btn {
+			width: 50px;
+			height: 20px;
+			border: solid 1px #9e571f;
+			color: #fff;
+			font-size: 13px;
+			cursor: pointer;
+			background-color: #9e571f;
+			float: left;
+			margin: 10px;
+			text-align: center;
+			border-radius: 3px
+		}
+
+		#navSub {
+			width: 100%;
+			height: 780px;
+			overflow: hidden;
+			overflow-y: auto
+		}
+
+		.navSub-item {
+			width: 170px;
+			height: 30px;
+			margin: 0 auto;
+			text-align: left;
+			line-height: 30px;
+			font-size: 14px;
+			overflow: hidden;
+			cursor: pointer;
+			padding-left: 10px;
+			margin-top: 8px;
+			margin-bottom: 8px;
+			border: solid 1px #f7dabd;
+			background-color: #fdf8f4
+		}
+
+		.navSub-on,
+		.navSub-item:hover {
+			background-color: #fff;
+			font-weight: bold;
+			border-radius: 10px;
+			color: #9E571F
+		}
+
+		.main {
+			width: 1160px;
+			overflow: hidden;
+			float: left;
+			margin-left: 235px;
+		}
+
+		.lanmu {
+			width: 100%;
+			margin: 0 auto;
+		}
+
+		.table {
+			overflow: hidden;
+			border-radius: 5px;
+			margin-top: 15px;
+			background: rgba(255, 255, 255, 0.9);
+			padding-bottom: 10px;
+			backdrop-filter: blur(6px)
+		}
+
+		.table-name {
+			height: 20px;
+			overflow: hidden;
+			font-weight: bold;
+			line-height: 20px;
+			color: #591e00;
+			display: inline-block;
+			margin-left: 5px;
+			font-size: 15px;
+			margin-top: 10px;
+			margin-bottom: 10px;
+			padding-left: 5px
+		}
+
+		.table-name span {
+			font-weight: normal;
+			font-size: 12px;
+			color: #c57222
+		}
+
+		.table-icon {
+			width: 10px;
+			height: 10px;
+			border-radius: 5px;
+			float: left;
+			margin-left: 15px;
+			margin-top: 16px;
+			background-color: #9C5925
+		}
+
+		.table-des {
+			width: 500px;
+			height: 20px;
+			overflow: hidden;
+			padding-left: 10px;
+			padding-bottom: 10px;
+			font-size: 12px
+		}
+
+		.table-menu {
+			height: 35px;
+			overflow: hidden;
+			border-bottom: dashed 1px #deb78d;
+			color: #9fcbf3;
+			background-color: #f9e1ce;
+			border-top: dashed 1px #deb78d;
+		}
+
+		.table-tr {
+			height: 35px;
+			overflow: hidden;
+			border-bottom: dashed 1px #deb78d
+		}
+
+		.table-td {
+			width: 140px;
+			overflow: hidden;
+			padding-left: 15px;
+			height: 35px;
+			line-height: 35px;
+			float: left;
+			font-size: 13px;
+			color: #222;
+			border-left: dashed 1px #deb78d
+		}
+
+		.col-name {
+			border-left: none
+		}
+
+		.loading {
+			width: 100%;
+			height: 300px;
+			background: url(assets/images/loading.gif) center center no-repeat;
+			background-size: 24px 24px;
+			background-color: #fff;
+			width: 94%;
+			margin: 0 auto;
+			border-radius: 5px;
+			padding: 10px;
+			line-height: 400px;
+			font-size: 14px;
+			color: #bbb;
+			text-align: center;
+			margin-top: 15px
+		}
+
+		.nothing {
+			height: 300px;
+			background: url(assets/images/icon_nothing.png) center center no-repeat;
+			background-size: 64px 64px;
+			background-color: #fff;
+			width: 94%;
+			margin: 0 auto;
+			border-radius: 5px;
+			padding: 10px;
+			line-height: 420px;
+			font-size: 14px;
+			color: #bbb;
+			text-align: center
+		}
+	</style>
+	<title>OA-数据库字段</title>
+</head>
+
+<body>
+	<div class="top">
+		<div class="nav"></div>
+	</div>
+
+	<div class="page">
+		<div class="navSub">
+			<div class="navSub-search">
+				<div class="navSub-wd"><input Type="text" id="wd"></div>
+				<div class="navSub-btn">搜索</div>
+			</div>
+			<div id="navSub"></div>
+		</div>
+
+		<div class="main">
+			<div class="loading">数据加载中</div>
+		</div>
+
+
+	</div>
+
+
+	<script language="javascript" src="assets/js/jquery.js"></script>
+	<script language="javascript">
+		var id = 1;
+		var lmname = ["会员区", "拍鸽", "展厅", "鸽业", "公棚", "协会", "俱乐部", "园地", "鸽圈", "鸽舍", "图库", "鸽问", "百科", "日记", "积分", "播客", "论坛", "手机"]
+		var data;
+
+		$(document).ready(function (e) {
+			initNav()
+			init()
+		});
+
+		//加载导航
+		function initNav() {
+			$.each(lmname, function (i) {
+				$('.nav').append('<div class="nav-item" onclick="getLm(' + i + ',this)">' + lmname[i] + '</div>')
+			})
+		}
+
+		//初始化
+		function init() {
+			$.ajax({
+				url: 'db/oa/data_column.json',
+				type: 'get',
+				data: {},
+				dataType: "json",
+				success: function (res) {
+					$('.loading').hide()
+					if (res.error_code == 200) {
+						data = res
+						var str = '<div class="lanmu">'
+						a = 0
+						$.each(res.lanmu[a].table, function (i) {
+							str = str + '<div class="table">'
+							str = str + '<div class="table-icon"></div><div class="table-name">' + (a + 1) + '-' + (i + 1) + ' 、 ' + res.lanmu[a].table[i].tablename + '<span> [' + res.lanmu[a].lmname + ']</span></div>'
+							//str=str+'<div class="table-des">'+res.table[i].tabledes+'</div>'
+							str = str + '<div class="table-menu">'
+							str = str + '<div class="table-td col-name">字段名称</div>'
+							str = str + '<div class="table-td">默认值</div>'
+							str = str + '<div class="table-td">是否为空</div>'
+							str = str + '<div class="table-td">字段长度</div>'
+							str = str + '<div class="table-td">字段类型</div>'
+							str = str + '<div class="table-td" style="widht:400px">描述</div>'
+							str = str + '</div>'
+							$('#navSub').append('<div class="navSub-item" onclick="getTab(' + a + ',' + i + ',this)">' + res.lanmu[a].table[i].tablename + '</div>')
+							$.each(res.lanmu[a].table[i].column, function (j) {
+								str = str + '<div class="table-tr">'
+								str = str + '<div class="table-td col-name">' + res.lanmu[a].table[i].column[j].columnName + '</div>'
+								str = str + '<div class="table-td">' + res.lanmu[a].table[i].column[j].columnDefault + '</div>'
+								str = str + '<div class="table-td">' + res.lanmu[a].table[i].column[j].columnNull + '</div>'
+								str = str + '<div class="table-td">' + res.lanmu[a].table[i].column[j].columnLenght + '</div>'
+								str = str + '<div class="table-td">' + res.lanmu[a].table[i].column[j].columnType + '</div>'
+								str = str + '<div class="table-td" style="widht:400px">' + res.lanmu[a].table[i].column[j].columnDes + '</div>'
+								str = str + '</div>'
+							})
+							str = str + '</div>'
+
+						})
+						str = str + '</div>'
+						$('.main').append(str)
+						$('#navSub').show()
+						$('.nav .nav-item ').first().addClass('nav-on')
+					}
+				}
+			})
+		}
+
+		//获取单个栏目
+		function getLm(k, obj) {
+			$('.nav-item').removeClass('nav-on')
+			$(obj).addClass('nav-on')
+			var res = data
+			var a = k
+			var str = '<div class="lanmu">'
+			$('.main').html('<div class="loading">数据加载中</div>')
+			var s = 0
+			$('#navSub').html('').hide()
+			$.each(res.lanmu[a].table, function (i) {
+				str = str + '<div class="table">'
+				str = str + '<div class="table-icon"></div><div class="table-name">' + (a + 1) + '-' + (i + 1) + ' 、 ' + res.lanmu[a].table[i].tablename + '<span> [' + res.lanmu[a].lmname + ']</span></div>'
+				//str=str+'<div class="table-des">'+res.table[i].tabledes+'</div>'
+				str = str + '<div class="table-menu">'
+				str = str + '<div class="table-td col-name">字段名称</div>'
+				str = str + '<div class="table-td">默认值</div>'
+				str = str + '<div class="table-td">是否为空</div>'
+				str = str + '<div class="table-td">字段长度</div>'
+				str = str + '<div class="table-td">字段类型</div>'
+				str = str + '<div class="table-td" style="widht:400px">描述</div>'
+				str = str + '</div>'
+				$('#navSub').append('<div class="navSub-item" onclick="getTab(' + a + ',' + i + ',this)">' + res.lanmu[a].table[i].tablename + '</div>')
+				$.each(res.lanmu[a].table[i].column, function (j) {
+					str = str + '<div class="table-tr">'
+					str = str + '<div class="table-td col-name">' + res.lanmu[a].table[i].column[j].columnName + '</div>'
+					str = str + '<div class="table-td">' + res.lanmu[a].table[i].column[j].columnDefault + '</div>'
+					str = str + '<div class="table-td">' + res.lanmu[a].table[i].column[j].columnNull + '</div>'
+					str = str + '<div class="table-td">' + res.lanmu[a].table[i].column[j].columnLenght + '</div>'
+					str = str + '<div class="table-td">' + res.lanmu[a].table[i].column[j].columnType + '</div>'
+					str = str + '<div class="table-td" style="widht:400px">' + res.lanmu[a].table[i].column[j].columnDes + '</div>'
+					str = str + '</div>'
+				})
+				str = str + '</div>'
+				s++
+			})
+			str = str + '</div>'
+			if (s > 0) {
+				$('.main').html(str)
+				$('#navSub').show()
+			} else {
+				$('.main').html('<div class="nothing">暂无数据</div>')
+			}
+
+		}
+
+		//获取单个表
+		function getTab(a, b, obj) {
+			$('.navSub-item').removeClass('navSub-on')
+			$(obj).addClass('navSub-on')
+			$('.main').html('')
+			var res = data
+			var i = b
+			var str = '<div class="lanmu">'
+			str = str + '<div class="table">'
+			str = str + '<div class="table-icon"></div><div class="table-name">' + (a + 1) + '-' + (i + 1) + ' 、 ' + res.lanmu[a].table[i].tablename + '<span> [' + res.lanmu[a].lmname + ']</span></div>'
+			str = str + '<div class="table-menu">'
+			str = str + '<div class="table-td col-name">字段名称</div>'
+			str = str + '<div class="table-td">默认值</div>'
+			str = str + '<div class="table-td">是否为空</div>'
+			str = str + '<div class="table-td">字段长度</div>'
+			str = str + '<div class="table-td">字段类型</div>'
+			str = str + '<div class="table-td" style="widht:400px">描述</div>'
+			str = str + '</div>'
+			$.each(res.lanmu[a].table[i].column, function (j) {
+				str = str + '<div class="table-tr">'
+				str = str + '<div class="table-td col-name">' + res.lanmu[a].table[i].column[j].columnName + '</div>'
+				str = str + '<div class="table-td">' + res.lanmu[a].table[i].column[j].columnDefault + '</div>'
+				str = str + '<div class="table-td">' + res.lanmu[a].table[i].column[j].columnNull + '</div>'
+				str = str + '<div class="table-td">' + res.lanmu[a].table[i].column[j].columnLenght + '</div>'
+				str = str + '<div class="table-td">' + res.lanmu[a].table[i].column[j].columnType + '</div>'
+				str = str + '<div class="table-td" style="widht:400px">' + res.lanmu[a].table[i].column[j].columnDes + '</div>'
+				str = str + '</div>'
+			})
+			str = str + '</div>'
+			$('.main').html(str)
+		}
+
+		$('.navSub-btn').click(function () {
+			searchWd()
+		})
+
+		$('#wd').keydown(function () {
+			searchWd()
+		})
+
+		function searchWd() {
+			var wd = $('#wd').val()
+			if (wd != '') {
+				$.each($('.navSub-item'), function (i) {
+					var s = $(this).text()
+					if (s.indexOf(wd) == -1) {
+						$(this).hide()
+					} else {
+						$(this).show()
+					}
+				})
+				$.each($('.table'), function (i) {
+					var s = $(this).find('.table-name').text()
+					if (s.indexOf(wd) == -1) {
+						$(this).hide()
+					} else {
+						$(this).show()
+					}
+				})
+			}
+		}
+
+		//获取所有的
+		function getdate(lmid) {
+
+			$.ajax({
+				url: 'db/oa/data_column.asp',
+				type: 'post',
+				data: {
+					act: 'getdata',
+					id: lmid
+				},
+				dataType: "json",
+				success: function (res) {
+					$('.nothing').hide()
+					if (res.error_code == 200) {
+						var str = ''
+						testJson.sort(res)
+						$.each(res.lanmu, function (a) {
+							str = str + '<div class="lanmu">'
+							$.each(res.lanmu[a].table, function (i) {
+								str = str + '<div class="table">'
+								str = str + '<div class="table-icon"></div><div class="table-name">' + (a + 1) + '-' + (i + 1) + ' 、 ' + res.lanmu[a].table[i].tablename + '<span> [' + res.lanmu[a].lmname + ']</span></div>'
+								//str=str+'<div class="table-des">'+res.table[i].tabledes+'</div>'
+								str = str + '<div class="table-menu">'
+								str = str + '<div class="table-td col-name">字段名称</div>'
+								str = str + '<div class="table-td">默认值</div>'
+								str = str + '<div class="table-td">是否为空</div>'
+								str = str + '<div class="table-td">字段长度</div>'
+								str = str + '<div class="table-td">字段类型</div>'
+								str = str + '<div class="table-td" style="widht:400px">描述</div>'
+								str = str + '</div>'
+								$.each(res.lanmu[a].table[i].column, function (j) {
+									str = str + '<div class="table-tr">'
+									str = str + '<div class="table-td">' + res.lanmu[a].table[i].column[j].columnName + '</div>'
+									str = str + '<div class="table-td">' + res.lanmu[a].table[i].column[j].columnDefault + '</div>'
+									str = str + '<div class="table-td">' + res.lanmu[a].table[i].column[j].columnNull + '</div>'
+									str = str + '<div class="table-td">' + res.lanmu[a].table[i].column[j].columnLenght + '</div>'
+									str = str + '<div class="table-td">' + res.lanmu[a].table[i].column[j].columnType + '</div>'
+									str = str + '<div class="table-td" style="widht:400px">' + res.lanmu[a].table[i].column[j].columnDes + '</div>'
+									str = str + '</div>'
+								})
+								str = str + '</div>'
+							})
+							str = str + '</div>'
+						})
+
+						$('.main').append(str)
+
+					}
+				}
+			})
+
+		}
+
+
+		function up(a, b) {
+			return a.val - b.val
+		}
+	</script>
+
+</body>
+
+</html>

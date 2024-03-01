@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+
+<head>
+    <title>javascript学习</title>
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+            font-size: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+
+
+    <script lang="javascript">
+        // //1.类的学习
+        // //class 声明类 ；extends 继承类 ； constructor 类的构造函数；super 调用父类，需要在子类的this调用前使用
+        // class Father{
+        //     constructor(x,y){
+        //         this.x=x
+        //         this.y=y
+        //     }
+        //     sum(){
+        //         return this.x+this.y
+        //     }
+        // }
+        // class Son extends Father{
+        //     constructor(x,y){
+        //         super(x,y)
+        //         this.x=x
+        //         this.y=y
+        //     }
+        //     substract(){
+        //         return this.x-this.y
+        //     }
+        // }
+        // let fs=new Son(10,5)
+        // console.log(fs.sum(),fs.substract());
+
+        // //对象原型，原型链
+        // //使用构造函数创建对象
+        // // 每一个构造函数都有一个原型对象prototype,prototype是一个对象，被称之为原型对象；原型对象中用来存放一些共享的参数和方法等；
+        // // prototype的原型对象是Object，Object的原型对象是null
+        // // 对象拥有自己的原型__proto__,原型指向构造函数的原型对象 对象.__proto__===构造函数.prototype
+        // //对象成员查找，先从构造函数查找，再查构造函数的原型对象，在查构造函数原型对象的原型对象，构成了原型链
+        // function Father(name,age){
+        //     this.name=name
+        //     this.age=age
+        // }
+        // Father.prototype.tag=function(){
+        //     console.log(this.name+'的年龄是：'+this.age)
+            
+        // }
+        // var f=new Father('jiery',18)
+        // f.tag()
+        // console.log(f.__proto__===Father.prototype);
+
+        // // call,apply,bind区别 （都用来改变函数的this指向）
+        // // call,apply 调用函数，第一个参数为this指向，call传入多个参数，apply传入数组
+        // // bind 不调用函数，改变this指向，第一参数为this指向，传入多个参数
+
+        // // 数组forEach();find(),findIndex(),fiter()
+        // var arr=[1,3,4,5,7,8,9,10]
+        // arr.forEach(function(item,index,array){ //遍历数组
+        //     console.log('值：'+item,'索引：'+index,'数组：'+array)
+        // })
+        // arr.forEach(function(item,index){
+        //     console.log('值：'+item,'索引：'+index)
+        // })
+        // arr.forEach(function(item){
+        //     console.log('值：'+item)
+        // })
+        // let a=arr.filter(function(item){    //刷选数组，返回一个新的数组
+        //     return item>5
+        // })
+        // console.log(a)
+        // let a=arr.find(function(item){  //返回符合条件的第一个值
+        //     return item>5
+        // })
+        // let a=arr.findIndex(function(item){  //返回符合条件的第一个值的所以
+        //     return item>5
+        // })
+        // let a=arr.some(function(item){  //返回是否有符合条件的值的一个结果，boolen类型，如果有将不再执行
+        //     return item>5
+        // })
+        // console.log(a)
+        // let a =arr.map(function(item){ //遍历数组,可以返回值，foreach遍历没有返回值
+        //     return item+1
+        // })
+        // console.log(a);
+        // console.log(Object.prototype.toString.call(arr)==='[object Array]');//判断数组类型
+        
+        // //闭包  一个函数有权访问别的函数作用域中的变量
+        // function fn(x){
+        //     var y=10
+        //     function fun(){ //fun 访问了fn中的变量
+        //         return x+y
+        //     }
+        //     return fun()
+        // }
+        // console.log(fn(7));
+        
+        // // 递归函数，自己调用自己
+        // function fn(x){
+        //     if(x<9){
+        //         for(var j=1;j<x+1;j++){
+        //             console.log(j+'*'+x+'='+x*j)
+        //         }
+        //         fn(x+1)
+        //     }
+        // }
+        // fn(1)
+
+        // // 深拷贝，浅拷贝
+        // obj={
+        //     name:'jiery',
+        //     age:48,
+        //     child:{
+        //         name:'duty',
+        //         age:10
+        //     }
+        // }
+        // o=JSON.parse(JSON.stringify(obj))    深拷贝
+        // o=Object.assign(obj) 浅拷贝
+        // o=obj 浅拷贝
+        // obj.child.age=15
+        // console.log(o,obj)
+
+        // // 箭头函数()=>{}    与普通函数区别
+        // // 箭头函数不绑定this关键字，this指向函数定义位置的this
+        // // 箭头函数没有argments ,箭头函数使用剩余参数 ...args 
+        // // 箭头函数不能使用call apply bind ，没有prototype,没有super ,不能new 
+        // function f(a,b,c){
+        //     var arr=arguments
+        //     console.log(arr)
+        // }
+        // let f=(...args)=>{
+        //     console.log(args)
+        // }
+        // f(1,2,3)
+
+        // //扩展运算符 ...   将数组结构成一个个参数
+        // var arr1=[1,2,3,4]
+        // var arr2=['a','b','c']
+        // console.log([...arr1,...arr2]);
+        
+        let obj={
+            [Symbol('say')]:function(){
+                console.log('game')
+            }
+
+        }
+        obj[Symbol('say')]()
+    </script>
+</body>
+
+</html>

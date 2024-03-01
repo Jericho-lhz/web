@@ -1,0 +1,709 @@
+[
+    {
+        "grade": "字母",
+        "data": [
+            {
+                "unit": "",
+                "list": [
+                    {
+                        "word": "A",
+                        "des": "字母：a的大写"
+                    },
+                    {
+                        "word": "B",
+                        "des": "字母：b的大写"
+                    },
+                    {
+                        "word": "C",
+                        "des": "字母：c的大写"
+                    },
+                    {
+                        "word": "D",
+                        "des": "字母：d的大写"
+                    },
+                    {
+                        "word": "E",
+                        "des": "字母：e的大写"
+                    },
+                    {
+                        "word": "F",
+                        "des": "字母：f的大写"
+                    },
+                    {
+                        "word": "G",
+                        "des": "字母：g的大写"
+                    },
+                    {
+                        "word": "H",
+                        "des": "字母：h的大写"
+                    },
+                    {
+                        "word": "I",
+                        "des": "字母：i的大写"
+                    },
+                    {
+                        "word": "J",
+                        "des": "字母：j的大写"
+                    },
+                    {
+                        "word": "K",
+                        "des": "字母：k的大写"
+                    },
+                    {
+                        "word": "L",
+                        "des": "字母：l的大写"
+                    },
+                    {
+                        "word": "M",
+                        "des": "字母：m的大写"
+                    },
+                    {
+                        "word": "N",
+                        "des": "字母：n的大写"
+                    },
+                    {
+                        "word": "O",
+                        "des": "字母：o的大写"
+                    },
+                    {
+                        "word": "P",
+                        "des": "字母：p的大写"
+                    },
+                    {
+                        "word": "Q",
+                        "des": "字母：q的大写"
+                    },
+                    {
+                        "word": "R",
+                        "des": "字母：r的大写"
+                    },
+                    {
+                        "word": "S",
+                        "des": "字母：s的大写"
+                    },
+                    {
+                        "word": "T",
+                        "des": "字母：t的大写"
+                    },
+                    {
+                        "word": "U",
+                        "des": "字母：u的大写"
+                    },
+                    {
+                        "word": "V",
+                        "des": "字母：v的大写"
+                    },
+                    {
+                        "word": "W",
+                        "des": "字母：w的大写"
+                    },
+                    {
+                        "word": "X",
+                        "des": "字母：x的大写"
+                    },
+                    {
+                        "word": "T",
+                        "des": "字母：y的大写"
+                    },
+                    {
+                        "word": "Z",
+                        "des": "字母：z的大写"
+                    },
+                    {
+                        "word": "a",
+                        "des": "字母：A的小写"
+                    },
+                    {
+                        "word": "b",
+                        "des": "字母：B的小写"
+                    },
+                    {
+                        "word": "c",
+                        "des": "字母：C的小写"
+                    },
+                    {
+                        "word": "d",
+                        "des": "字母：D的小写"
+                    },
+                    {
+                        "word": "e",
+                        "des": "字母：E的小写"
+                    },
+                    {
+                        "word": "f",
+                        "des": "字母：F的小写"
+                    },
+                    {
+                        "word": "g",
+                        "des": "字母：G的小写"
+                    },
+                    {
+                        "word": "h",
+                        "des": "字母：H的小写"
+                    },
+                    {
+                        "word": "i",
+                        "des": "字母：I的小写"
+                    },
+                    {
+                        "word": "j",
+                        "des": "字母：J的小写"
+                    },
+                    {
+                        "word": "k",
+                        "des": "字母：K的小写"
+                    },
+                    {
+                        "word": "l",
+                        "des": "字母：L的小写"
+                    },
+                    {
+                        "word": "m",
+                        "des": "字母：M的小写"
+                    },
+                    {
+                        "word": "n",
+                        "des": "字母：N的小写"
+                    },
+                    {
+                        "word": "o",
+                        "des": "字母：O的小写"
+                    },
+                    {
+                        "word": "p",
+                        "des": "字母：P的小写"
+                    },
+                    {
+                        "word": "q",
+                        "des": "字母：Q的小写"
+                    },
+                    {
+                        "word": "r",
+                        "des": "字母：R的小写"
+                    },
+                    {
+                        "word": "s",
+                        "des": "字母：S的小写"
+                    },
+                    {
+                        "word": "t",
+                        "des": "字母：T的小写"
+                    },
+                    {
+                        "word": "u",
+                        "des": "字母：U的小写"
+                    },
+                    {
+                        "word": "v",
+                        "des": "字母：V的小写"
+                    },
+                    {
+                        "word": "w",
+                        "des": "字母：W的小写"
+                    },
+                    {
+                        "word": "x",
+                        "des": "字母：X的小写"
+                    },
+                    {
+                        "word": "y",
+                        "des": "字母：Y的小写"
+                    },
+                    {
+                        "word": "z",
+                        "des": "字母：Z的小写"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "grade": "三年级上",
+        "data": [
+            {
+                "unit": "Unit1",
+                "list": [
+                    {
+                        "word": "Hello",
+                        "des": "单词：你好"
+                    },
+                    {
+                        "word": "I",
+                        "des": "单词：我"
+                    },
+                    {
+                        "word": "am",
+                        "des": "单词：是，第一人称使用"
+                    },
+                    {
+                        "word": "hi",
+                        "des": "单词：嗨"
+                    },
+                    {
+                        "word": "Miss",
+                        "des": "单词：小姐"
+                    }
+                ]
+            },
+            {
+                "unit": "Unit2",
+                "list": [
+                    {
+                        "word": "good",
+                        "des": "单词： 好的"
+                    },
+                    {
+                        "word": "morning",
+                        "des": "单词：早上"
+                    },
+                    {
+                        "word": "class",
+                        "des": "单词：班级；全班"
+                    },
+                    {
+                        "word": "goodbye",
+                        "des": "单词：再见"
+                    },
+                    {
+                        "word": "afternoon",
+                        "des": "单词：下午"
+                    }
+                ]
+            },
+            {
+                "unit": "Unit3",
+                "list": [
+                    {
+                        "word": "what",
+                        "des": "单词：什么"
+                    },
+                    {
+                        "word": "is",
+                        "des": "单词：是，第三人称使用"
+                    },
+                    {
+                        "word": "your",
+                        "des": "单词：你的"
+                    },
+                    {
+                        "word": "name",
+                        "des": "单词：名字"
+                    },
+                    {
+                        "word": "my",
+                        "des": "单词：我的"
+                    }
+                ]
+            },
+            {
+                "unit": "Unit4",
+                "list": [
+                    {
+                        "word": "how",
+                        "des": "单词：怎样"
+                    },
+                    {
+                        "word": "old",
+                        "des": "单词：……岁的；老的"
+                    },
+                    {
+                        "word": "are",
+                        "des": "单词：是，第二人称使用"
+                    },
+                    {
+                        "word": "you",
+                        "des": "单词：你"
+                    },
+                    {
+                        "word": "one",
+                        "des": "单词：一"
+                    },
+                    {
+                        "word": "two",
+                        "des": "单词：二"
+                    },
+                    {
+                        "word": "three",
+                        "des": "单词：三"
+                    },
+                    {
+                        "word": "four",
+                        "des": "单词：四"
+                    },
+                    {
+                        "word": "five",
+                        "des": "单词：五"
+                    },
+                    {
+                        "word": "six",
+                        "des": "单词：六"
+                    },
+                    {
+                        "word": "seven",
+                        "des": "单词：七"
+                    },
+                    {
+                        "word": "eight",
+                        "des": "单词：八"
+                    },
+                    {
+                        "word": "nine",
+                        "des": "单词：九"
+                    },
+                    {
+                        "word": "ten",
+                        "des": "单词：十"
+                    }
+                ]
+            },
+            {
+                "unit": "Unit5",
+                "list": [
+                    {
+                        "word": "this",
+                        "des": "单词：这个"
+                    },
+                    {
+                        "word": "family",
+                        "des": "单词：家庭"
+                    },
+                    {
+                        "word": "father",
+                        "des": "单词：爸爸"
+                    },
+                    {
+                        "word": "mother",
+                        "des": "单词：妈妈"
+                    },
+                    {
+                        "word": "brother",
+                        "des": "单词：哥哥；弟弟"
+                    },
+                    {
+                        "word": "sister",
+                        "des": "单词：姐姐；妹妹"
+                    }
+                ]
+            },
+            {
+                "unit": "Unit6",
+                "list": [
+                    {
+                        "word": "who",
+                        "des": "单词：谁"
+                    },
+                    {
+                        "word": "he",
+                        "des": "单词：他"
+                    },
+                    {
+                        "word": "she",
+                        "des": "单词：她"
+                    },
+                    {
+                        "word": "grandfather",
+                        "des": "单词：爷爷；外公"
+                    },
+                    {
+                        "word": "grandmother",
+                        "des": "单词：奶奶；外婆"
+                    },
+                    {
+                        "word": "cousin",
+                        "des": "单词：堂（表）兄弟姐妹"
+                    },
+                    {
+                        "word": "aunt",
+                        "des": "单词：阿姨"
+                    },
+                    {
+                        "word": "uncle",
+                        "des": "单词：叔叔"
+                    }
+                ]
+            },
+            {
+                "unit": "Unit7",
+                "list": [
+                    {
+                        "word": "it",
+                        "des": "单词：它"
+                    },
+                    {
+                        "word": "a",
+                        "des": "单词：一个"
+                    },
+                    {
+                        "word": "dog",
+                        "des": "单词：狗"
+                    },
+                    {
+                        "word": "cow ",
+                        "des": "单词：奶牛 "
+                    },
+                    {
+                        "word": "yes",
+                        "des": "单词：是的"
+                    },
+                    {
+                        "word": "no ",
+                        "des": "单词：不"
+                    },
+                    {
+                        "word": "not",
+                        "des": "单词：不；不是；没有"
+                    },
+                    {
+                        "word": "duck",
+                        "des": "单词：鸭子"
+                    },
+                    {
+                        "word": "cat",
+                        "des": "单词：猫"
+                    },
+                    {
+                        "word": "horse",
+                        "des": "单词：马"
+                    },
+                    {
+                        "word": "hen",
+                        "des": "单词：母鸡"
+                    }
+                ]
+            },
+            {
+                "unit": "Unit8",
+                "list": [
+                    {
+                        "word": "schoolbag",
+                        "des": "单词：书包"
+                    },
+                    {
+                        "word": "pencil-box",
+                        "des": "单词：文具盒"
+                    },
+                    {
+                        "word": "that",
+                        "des": "单词：那个"
+                    },
+                    {
+                        "word": "pen",
+                        "des": "单词：钢笔 "
+                    },
+                    {
+                        "word": "how",
+                        "des": "单词：多么"
+                    },
+                    {
+                        "word": "beautiful",
+                        "des": "单词：美丽的；漂亮的"
+                    },
+                    {
+                        "word": "ruler",
+                        "des": "单词： 尺子 "
+                    },
+                    {
+                        "word": "pencil",
+                        "des": "单词： 铅笔"
+                    },
+                    {
+                        "word": "book",
+                        "des": "单词：书"
+                    }
+                ]
+            },
+            {
+                "unit": "Unit9",
+                "list": [
+                    {
+                        "word": "mouth",
+                        "des": "单词：嘴巴"
+                    },
+                    {
+                        "word": "sorry",
+                        "des": "单词：对不起"
+                    },
+                    {
+                        "word": "know",
+                        "des": "单词：知道"
+                    },
+                    {
+                        "word": "nose",
+                        "des": "单词：鼻子 "
+                    },
+                    {
+                        "word": "face",
+                        "des": "单词：脸"
+                    },
+                    {
+                        "word": "hair",
+                        "des": "单词：头发"
+                    },
+                    {
+                        "word": "ear",
+                        "des": "单词：耳朵"
+                    },
+                    {
+                        "word": "eye",
+                        "des": "单词：眼睛"
+                    }
+                ]
+            },
+            {
+                "unit": "Unit10",
+                "list": [
+                    {
+                        "word": "touch",
+                        "des": "单词：摸；接触"
+                    },
+                    {
+                        "word": "head",
+                        "des": "单词：头 "
+                    },
+                    {
+                        "word": "raise",
+                        "des": "单词：举起"
+                    },
+                    {
+                        "word": "hand",
+                        "des": "单词：手"
+                    },
+                    {
+                        "word": "leg",
+                        "des": "单词：腿"
+                    },
+                    {
+                        "word": "arm",
+                        "des": "单词：手臂"
+                    },
+                    {
+                        "word": "neck",
+                        "des": "单词：颈；脖子"
+                    },
+                    {
+                        "word": "body",
+                        "des": "单词：身体"
+                    },
+                    {
+                        "word": "foot",
+                        "des": "单词：脚"
+                    }
+                ]
+            },
+            {
+                "unit": "Unit11",
+                "list": [
+                    {
+                        "word": "like",
+                        "des": "单词：喜欢"
+                    },
+                    {
+                        "word": "the",
+                        "des": "单词：那个（特指）"
+                    },
+                    {
+                        "word": "bird",
+                        "des": "单词：鸟"
+                    },
+                    {
+                        "word": "monkey",
+                        "des": "单词：猴子"
+                    },
+                    {
+                        "word": "right",
+                        "des": "单词：对的"
+                    },
+                    {
+                        "word": "lion",
+                        "des": "单词：狮子"
+                    },
+                    {
+                        "word": "tiger",
+                        "des": "单词：老虎"
+                    },
+                    {
+                        "word": "panda",
+                        "des": "单词：熊猫"
+                    },
+                    {
+                        "word": "elephant",
+                        "des": "单词：大象"
+                    }
+                ]
+            },
+            {
+                "unit": "Unit12",
+                "list": [
+                    {
+                        "word": "happy",
+                        "des": "单词：快乐的"
+                    },
+                    {
+                        "word": "birthday",
+                        "des": "单词：生日"
+                    },
+                    {
+                        "word": "gift",
+                        "des": "单词：礼物"
+                    },
+                    {
+                        "word": "for",
+                        "des": "单词：为了"
+                    },
+                    {
+                        "word": "love",
+                        "des": "单词：爱"
+                    },
+                    {
+                        "word": "toy",
+                        "des": "单词：玩具"
+                    },
+                    {
+                        "word": "card",
+                        "des": "单词：卡片"
+                    },
+                    {
+                        "word": "cake",
+                        "des": "单词：蛋糕"
+                    },
+                    {
+                        "word": "picture",
+                        "des": "单词：图画；图片"
+                    },
+                    {
+                        "word": "notebook",
+                        "des": "单词：笔记本"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "grade": "三年级下",
+        "data": []
+    },
+    {
+        "grade": "四年级上",
+        "data": []
+    },
+    {
+        "grade": "四年级下",
+        "data": []
+    },
+    {
+        "grade": "五年级上",
+        "data": []
+    },
+    {
+        "grade": "五年级下",
+        "data": []
+    },
+    {
+        "grade": "六年级上",
+        "data": []
+    },
+    {
+        "grade": "六年级下",
+        "data": []
+    }
+]

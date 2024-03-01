@@ -1,0 +1,107 @@
+<script language="javascript" >
+    // var num1="1"
+    // var num2=1
+    // console.log(num1+num2)
+
+    // const arr1=['a','b','c']
+    // const arr2=['b','c','a']
+    // const arr3=arr2.sort()
+    // console.log(arr3,arr1.sort()===arr1,arr2.sort()==arr2,arr1.sort()===arr2.sort(),arr2==arr3)
+
+    // const a=['a','b','c']
+    // const b=['b','c','a']
+    // console.log(a==b)
+    
+    // let a=1
+    // let b=2
+    // a=[a,b]
+    // b=a[0]
+    // a=a[1]
+    // console.log(a,b)
+    
+    // console.log(typeof unknow) 
+//     var a = {};
+// var b = {key: 'b'};
+// var c = {key: 'c'};
+// var d = [3,5,6];
+// a[b] = 123;
+// a[c] = 345;
+// // a[d] = 333;
+// // console.log(a[b]);  
+// // console.log(a[c]);  
+// // console.log(a[d]);  
+// console.log(a)
+
+// function demo() {
+//     this.length = 10;
+//     var fn = function() {
+//         console.log('fn',this.length);     // 输出多少？
+//     }
+//     arr = [fn, 'hello layui'];
+//     fn.length = 100;
+//     arr[0];
+// }
+// demo()
+
+// let o={
+//     name:'jiery'
+// }
+// let fn=function(arr){
+//     console.log(this)
+//     console.log(arr)
+// }
+// fn.apply(o,[['duty','boom']])
+// function obj(name,age){
+//     this.name=name
+//     this.age=age
+// }
+
+// var  jiery=new obj('jiery',18)
+// obj=Array.from(obj)
+// for(var item in obj){
+//     console.log(item)
+// }
+
+// for(var item of obj){
+//     console.log(item)
+// }
+// console.log(jiery.__proto__,obj.prototype)
+// console.log(Object.keys(jiery));
+
+// var reg=/^[1][0-9]{10}$/
+// var reg=/^[1][\d]{10}$/
+// str='131000000001'
+// console.log(reg.test(str));
+
+// let obj={
+//     name:'jiery',
+//     age:10,
+//     sex:'man'
+// }
+
+// function fn(){
+//     console.log(this)
+//     return ()=>{
+//         console.log(this)
+//     }
+// }
+
+// let s= fn.call(obj)
+// s()
+
+
+
+// const obj={
+//     '0':10,
+//     '1':'jiery',
+//     '2':'man',
+//     'length':3
+// }
+
+// const arr=Array.from(obj)
+// console.log(arr)
+
+let name='jiery'
+let s=`this is ${name}`
+console.log(s);
+</script>
